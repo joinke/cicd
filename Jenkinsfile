@@ -12,7 +12,7 @@ pipeline {
           properties([
             parameters([
               choice(
-                choices: ['ONE', 'TWO'],
+                choices: ['pwd', 'list'],
                 name: 'PARAMETER_01'
               ),
               booleanParam(
@@ -33,10 +33,24 @@ pipeline {
     }
 
     stage('Stage1') {
+      when {
+                expression { 
+                   return params.PARAMETER_01 == 'pwd'
+                }
+            }
+      steps {
+        sh 'pwd'
+      }
+    }
+    stage('Stage2') {
+      when {
+          expression { 
+                   return params.PARAMETER_01 == 'list'
+          }
+      }
       steps {
         sh 'ls -al'
       }
     }
-
   }
 }

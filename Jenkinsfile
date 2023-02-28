@@ -15,26 +15,26 @@ pipeline {
     stage('Set Params') {
       steps {
         script {
-          script {
-            properties([
-              parameters([
-                choice(
-                  choices: ['ONE', 'TWO'],
-                  name: 'PARAMETER_01'
-                ),
-                booleanParam(
-                  defaultValue: true,
-                  description: '',
-                  name: 'PARAMETER_02'
-                ),
-                string(
-                  defaultValue: 'scriptcrunch',
-                  name: 'PARAMETER_03',
-                  trim: true
-                )
-              ])
+
+          properties([
+            parameters([
+              choice(
+                choices: ['ONE', 'TWO'],
+                name: 'PARAMETER_01'
+              ),
+              booleanParam(
+                defaultValue: true,
+                description: '',
+                name: 'PARAMETER_02'
+              ),
+              string(
+                defaultValue: 'scriptcrunch',
+                name: 'PARAMETER_03',
+                trim: true
+              )
             ])
-          }
+          ])
+
         }
 
       }

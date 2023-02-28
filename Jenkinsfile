@@ -6,10 +6,9 @@ pipeline {
 
   }
   stages {
-        stage('Set Params') {
+    stage('Set Params') {
       steps {
         script {
-
           properties([
             parameters([
               choice(
@@ -28,18 +27,16 @@ pipeline {
               )
             ])
           ])
-
         }
 
       }
     }
+
     stage('Stage1') {
       steps {
         sh 'ls -al'
       }
     }
-
-
 
   }
 }

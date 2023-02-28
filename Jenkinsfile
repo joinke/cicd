@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Stage1') {
       steps {
-        sh 'pwd'
+        sh 'll'
       }
     }
 

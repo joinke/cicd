@@ -11,15 +11,15 @@ pipeline {
         script {
           properties([
             parameters([
-              [
+              (
                $class: 'ChoiceParameter',
                choiceType: 'PT_SINGLE_SELECT',
                name: 'Environment',
                script: [
                  $class: 'ScriptlerScript',
                  scriptlerScriptId:'Environments.groovy'
-               ]
-              ],
+                ]
+              ),
               choice(
                 choices: ['pwd', 'list'],
                 name: 'PARAMETER_01'

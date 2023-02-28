@@ -17,17 +17,8 @@ pipeline {
             name: 'Env', 
             randomName: 'choice-parameter-5631314439613978', 
             script: [
-                $class: 'GroovyScript', 
-                fallbackScript: [
-                    classpath: [], 
-                    sandbox: false, 
-                    script: "return[\'Could not get Env\']"
-                ], 
-                script: [
-                    classpath: [], 
-                    sandbox: false, 
-                    script: "return['Dev','QA','Stage','Prod']"
-                ]
+              $class: 'ScriptlerScript',
+              scriptlerScriptId:'Environments.groovy'
               ]
             ],
               choice(

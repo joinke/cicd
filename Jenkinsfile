@@ -6,13 +6,7 @@ pipeline {
 
   }
   stages {
-    stage('Stage1') {
-      steps {
-        sh 'ls -al'
-      }
-    }
-
-    stage('Set Params') {
+        stage('Set Params') {
       steps {
         script {
 
@@ -39,6 +33,13 @@ pipeline {
 
       }
     }
+    stage('Stage1') {
+      steps {
+        sh 'ls -al'
+      }
+    }
+
+
 
   }
 }

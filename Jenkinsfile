@@ -20,6 +20,7 @@ pipeline {
 						"Fig",
 						"Grape"
 					]
+					'''
 				)           
 	}
   stages {

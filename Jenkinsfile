@@ -11,16 +11,21 @@ pipeline {
         script {
           properties([
             parameters([
-              [$class: 'ChoiceParameter', 
-            choiceType: 'PT_SINGLE_SELECT', 
-            description: 'Select the Env Name from the Dropdown List', 
-            name: 'Env', 
-            randomName: 'choice-parameter-5631314439613978', 
-            script: [
-              $class: 'ScriptlerScript',
-              scriptlerScriptId:'Environments.groovy'
-              ]
-            ],
+              activeChoiceParam(
+            name: 'FRUITS',
+            description: 'Select your favorite fruits:',
+            filterable: true,
+            choiceType: 'MULTI',
+            groovyScript: '''
+                return [
+                    "Apple",
+                    "Banana",
+                    "Cherry",
+                    "Durian",
+                    "Elderberry",
+                    "Fig",
+                    "Grape"
+                ]),
               choice(
                 choices: ['pwd', 'list'],
                 name: 'PARAMETER_01'

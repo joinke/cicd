@@ -12,7 +12,7 @@ pipeline {
           properties([
             parameters([
               [$class: 'ChoiceParameter', 
-            choiceType: 'PT_SINGLE_SELECT', 
+            choiceType: 'MULTI', 
             description: 'Select the Env Name from the Dropdown List', 
             name: 'Env', 
             randomName: 'choice-parameter-5631314439613978', 

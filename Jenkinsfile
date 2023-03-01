@@ -28,7 +28,7 @@ pipeline {
                     classpath: [], 
                     sandbox: false, 
                     script: '''
-                        "return['Dev','QA','Stage','Prod']"
+                        'return["Dev",QA","Stage","Prod"]'
 		    '''
                 ]
               ]
@@ -64,5 +64,5 @@ pipeline {
         sh 'ls -al'
       }
     }
-  }
+  }'
 }

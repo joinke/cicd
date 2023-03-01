@@ -11,23 +11,28 @@ pipeline {
         script {
           properties([
             parameters([
-              activeChoiceParam(
-            name: 'FRUITS',
-            description: 'Select your favorite fruits:',
-            filterable: true,
-            choiceType: 'MULTI',
-            groovyScript: '''
-                return [
-                    "Apple",
-                    "Banana",
-                    "Cherry",
-                    "Durian",
-                    "Elderberry",
-                    "Fig",
-                    "Grape"
+              [$class: 'ChoiceParameter', 
+            choiceType: 'PT_SINGLE_SELECT', 
+            description: 'Select the Env Name from the Dropdown List', 
+            name: 'Env', 
+            randomName: 'choice-parameter-5631314439613978', 
+            script: [
+                $class: 'GroovyScript', 
+                fallbackScript: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 
+                        "return[\'Could not get Env\']"
+                ], 
+                script: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: '''
+                        "return['Dev','QA','Stage','Prod']"
+		    '''
                 ]
-		'''	
-	    ),
+              ]
+            ],
               choice(
                 choices: ['pwd', 'list'],
                 name: 'PARAMETER_01'
@@ -61,4 +66,3 @@ pipeline {
     }
   }
 }
-

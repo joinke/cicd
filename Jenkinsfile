@@ -3,34 +3,39 @@ pipeline {
     node {
       label 'au-rpi-1'
     }
+
   }
-  parameters {
-				activeChoiceParam(
-					name: 'FRUITS',
-					description: 'Select your favorite fruits:',
-					filterable: true,
-					choiceType: 'MULTI',
-					groovyScript: '''
-					return [
-						"Apple",
-						"Banana",
-						"Cherry",
-						"Durian",
-						"Elderberry",
-						"Fig",
-						"Grape"
-					]
-					'''
-				)           
-	}
   stages {
     stage('Set Params') {
       steps {
         script {
           properties([
-            
+            parameters([
+              activeChoiceParam(
+            name: 'FRUITS',
+            description: 'Select your favorite fruits:',
+            filterable: true,
+            choiceType: 'MULTI',
+            groovyScript: '''
+                return [
+                    "Apple",
+                    "Banana",
+                    "Cherry",
+                    "Durian",
+                    "Elderberry",
+                    "Fig",
+                    "Grape"
+                ]
+		'''	
+	    ),
+              choice(
+                choices: ['pwd', 'list'],
+                name: 'PARAMETER_01'
+              )
+            ])
           ])
         }
+
       }
     }
 
@@ -56,3 +61,4 @@ pipeline {
     }
   }
 }
+

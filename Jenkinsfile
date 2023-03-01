@@ -64,5 +64,5 @@ pipeline {
         sh 'ls -al'
       }
     }
-  }'
+  }
 }

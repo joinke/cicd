@@ -34,7 +34,7 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: 'return["UAT","SIT","PROD"]'
+                    script: 'return["au-rpi-5","SIT","PROD"]'
                 ]
             ]
          ],
@@ -46,7 +46,7 @@ pipeline {
   stages {
   stage('Stage1') {
       agent {
-        label "${params.SOURCE}"
+        label "${params.DESTINATION}"
         }
       when {
                 expression { 
@@ -62,7 +62,7 @@ pipeline {
     }
     stage('Stage2') {
       agent {
-         label "${params.SOURCE}"
+         label "${params.DESTINATION}"
       }
       when {
           expression { 

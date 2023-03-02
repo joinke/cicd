@@ -46,7 +46,7 @@ pipeline {
   stages {
   stage('Stage1') {
       agent {
-        node("${params.SOURCE}")
+        label "${params.SOURCE}"
         }
       when {
                 expression { 
@@ -62,7 +62,7 @@ pipeline {
     }
     stage('Stage2') {
       agent {
-         node("${params.SOURCE}")
+         label "${params.SOURCE}"
       }
       when {
           expression { 

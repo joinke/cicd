@@ -34,7 +34,7 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: 'return["aurpi5","SIT","PROD"]'
+                    script: 'return["aurpi5","newmac1","PROD"]'
                 ]
             ]
          ],

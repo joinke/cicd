@@ -1,9 +1,9 @@
 properties([
     parameters([
             [$class: 'ChoiceParameter', 
-            choiceType: 'PT_MULTI_SELECT', 
-            description: 'Select a choice', 
-            name: 'PROJECT', 
+            choiceType: 'PT_SINGLE_SELECT', 
+            description: 'Select source environment', 
+            name: 'SOURCE', 
             randomName: 'choice-parameter-7601235200970', 
             script: [
                 $class: 'GroovyScript', 
@@ -15,7 +15,26 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: 'return["aaa","bbb"]'
+                    script: 'return["DEV","UAT"]'
+                ]
+            ]
+         ],
+                    [$class: 'ChoiceParameter', 
+            choiceType: 'PT_MULTI_SELECT', 
+            description: 'Select a destination environment', 
+            name: 'DESTINATION', 
+            randomName: 'choice-parameter-7601235200970', 
+            script: [
+                $class: 'GroovyScript', 
+                fallbackScript: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 'return ["ERROR"]'
+                ], 
+                script: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 'return["UAT","SIT","PROD"]'
                 ]
             ]
          ]

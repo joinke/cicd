@@ -1,7 +1,7 @@
 properties([
     parameters([
             [$class: 'ChoiceParameter', 
-            choiceType: 'PT_SINGLE_SELECT', 
+            choiceType: 'PT_MULTI_SELECT', 
             description: 'Select a choice', 
             name: 'PROJECT', 
             randomName: 'choice-parameter-7601235200970', 

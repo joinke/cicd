@@ -34,6 +34,7 @@ pipeline {
             }
       steps {
         echo 'Building anotherJob and getting the log'
+        echo params.PROJECT
         sh 'pwd'
       }
     }

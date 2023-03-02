@@ -15,7 +15,7 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: 'return["au-rpi-5","newmac-1"]'
+                    script: 'return["au\-rpi\-5","newmac\-1"]'
                 ]
             ]
          ],

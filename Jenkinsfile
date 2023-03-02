@@ -42,20 +42,21 @@ properties([
     ])
 ])
 pipeline {
-  agent {
-    node {
-      label 'au-rpi-1'
-    }
-  }
   
   stages {
   stage('Stage1') {
+      agent {
+        node {
+          label 'au-rpi-1'
+        }
+      }
       when {
                 expression { 
                    return params.SOURCE == 'DEV'
                 }
             }
       steps {
+        no
         echo params.SOURCE
         echo "Destination Selection:"
         echo params.DESTINATION
@@ -63,6 +64,11 @@ pipeline {
       }
     }
     stage('Stage2') {
+      agent {
+        node {
+          label 'au-rpi-1'
+        }
+      }
       when {
           expression { 
                    return params.SOURCE == 'UAT'

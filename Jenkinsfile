@@ -18,7 +18,6 @@ properties([
                     script: 'return[\'aaa\',\'bbb\']'
                 ]
             ]
-        ],
     ])
 ])
 pipeline {

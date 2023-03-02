@@ -4,7 +4,7 @@ properties([
             name: 'PROJECT', 
             defaultValue: '', 
             description: 'Sélectionnez le projet à construire.', 
-            type: 'PT_SINGLE_SELECT', 
+            type: 'PT_MULTI_SELECT', 
             groovyScript: 'return["A","B"]',
             descriptionGroovyScript: 'return["c","d"]'       
         )

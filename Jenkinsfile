@@ -56,9 +56,10 @@ pipeline {
                 }
             }
       steps {
+        echo params.SOURCE
         echo "Destination Selection:"
         echo params.DESTINATION
-        sh 'pwd'
+        sh 'ls -al'
       }
     }
     stage('Stage2') {
@@ -68,6 +69,9 @@ pipeline {
           }
       }
       steps {
+        echo params.SOURCE
+        echo "Destination Selection:"
+        echo params.DESTINATION
         sh 'ls -al'
       }
     }

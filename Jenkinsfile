@@ -56,14 +56,15 @@ pipeline {
       }
     }
     stage('Stage2') {
-      agent {
-         label "${params.SOURCE}"
-      }
-      when {
+       when {
           expression { 
                    return params.SOURCE == 'newmac1'
           }
       }
+      agent {
+         label "${params.SOURCE}"
+      }
+     
       steps {
         echo params.SOURCE
         echo "Destination Selection:"

@@ -46,13 +46,8 @@ pipeline {
   stages {
   stage('Stage1') {
       agent {
-        label "${params.DESTINATION}"
+        label "${params.SOURCE}"
         }
-      when {
-                expression { 
-                   return params.SOURCE == 'au-rpi-5'
-                }
-            }
       steps {
         echo params.SOURCE
         echo "Destination Selection:"
@@ -62,11 +57,11 @@ pipeline {
     }
     stage('Stage2') {
       agent {
-         label "${params.DESTINATION}"
+         label "${params.SOURCE}"
       }
       when {
           expression { 
-                   return params.SOURCE == 'newmac-1'
+                   return params.SOURCE == 'newmac1'
           }
       }
       steps {

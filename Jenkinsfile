@@ -1,3 +1,15 @@
+properties([
+    parameters([
+        extendedChoice( 
+            name: 'PROJECT', 
+            defaultValue: '', 
+            description: 'Sélectionnez le projet à construire.', 
+            type: 'PT_SINGLE_SELECT', 
+            groovyScript: Environments.groovy,
+            descriptionGroovyScript: valueNamesScript
+        )
+    ])
+])
 pipeline {
   agent {
     node {

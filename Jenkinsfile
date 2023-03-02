@@ -56,7 +56,6 @@ pipeline {
                 }
             }
       steps {
-        no
         echo params.SOURCE
         echo "Destination Selection:"
         echo params.DESTINATION

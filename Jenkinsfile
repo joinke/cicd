@@ -1,6 +1,6 @@
 properties([
     parameters([
-            booleanParam(defaultValue: false, name: 'ALL', description: 'Process all')],
+            booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
             [$class: 'ChoiceParameter', 
             choiceType: 'PT_SINGLE_SELECT', 
             description: 'Select source environment', 

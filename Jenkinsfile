@@ -11,28 +11,9 @@ pipeline {
         script {
           properties([
             parameters([
-              [$class: 'ChoiceParameter', 
-            choiceType: 'MULTI', 
-            description: 'Select the Env Name from the Dropdown List', 
-            name: 'Env', 
-            randomName: 'choice-parameter-5631314439613978', 
-            script: [
-                $class: 'GroovyScript', 
-                fallbackScript: [
-                    classpath: [], 
-                    sandbox: false, 
-                    script: 
-                        "return[\'Could not get Env\']"
-                ], 
-                script: [
-                    classpath: [], 
-                    sandbox: false, 
-                    script: '''
-                        return[\"Dev\",\"QA\",\"Stage\",\"Prod\"]
-		    '''
-                ]
-              ]
-            ],
+              booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
+	      booleanParam(defaultValue: false, name: 'OPTION_1', description: 'Process option 1'),
+              booleanParam(defaultValue: false, name: 'OPTION_2', description: 'Process options 2'),
               choice(
                 choices: ['pwd', 'list'],
                 name: 'PARAMETER_01'

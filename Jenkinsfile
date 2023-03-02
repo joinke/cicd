@@ -15,7 +15,7 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: 'return["DEV","UAT"]'
+                    script: 'return["au-rpi-5","newmac-1"]'
                 ]
             ]
          ],
@@ -47,12 +47,12 @@ pipeline {
   stage('Stage1') {
       agent {
         node {
-          label 'au-rpi-1'
+          label params.SOURCE
         }
       }
       when {
                 expression { 
-                   return params.SOURCE == 'DEV'
+                   return params.SOURCE == 'au-rpi-5'
                 }
             }
       steps {
@@ -70,7 +70,7 @@ pipeline {
       }
       when {
           expression { 
-                   return params.SOURCE == 'UAT'
+                   return params.SOURCE == 'newmac-1'
           }
       }
       steps {

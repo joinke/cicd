@@ -1,5 +1,6 @@
 properties([
     parameters([
+            booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
             [$class: 'ChoiceParameter', 
             choiceType: 'PT_SINGLE_SELECT', 
             description: 'Select source environment', 
@@ -47,9 +48,6 @@ pipeline {
     }
   }
   parameters{
-    booleanParam(defaultValue: false, name: 'ALL', description: 'Process all')
-    booleanParam(defaultValue: false, name: 'OPTION_1', description: 'Process option 1')
-    booleanParam(defaultValue: false, name: 'OPTION_2', description: 'Process options 2')
     choice(
        choices: ['pwd', 'list'],
        name: 'PARAMETER_01'
@@ -64,7 +62,7 @@ pipeline {
             }
       steps {
         echo 'Building anotherJob and getting the log'
-        echo params.PROJECT
+        echo params.DESINTATION
         sh 'pwd'
       }
     }

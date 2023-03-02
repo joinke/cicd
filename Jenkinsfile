@@ -33,6 +33,7 @@ pipeline {
                 }
             }
       steps {
+        echo 'Building anotherJob and getting the log'
         sh 'pwd'
       }
     }

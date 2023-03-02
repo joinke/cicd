@@ -5,8 +5,8 @@ properties([
             defaultValue: '', 
             description: 'Sélectionnez le projet à construire.', 
             type: 'PT_SINGLE_SELECT', 
-            groovyScript: 'Environments.groovy',
-            descriptionGroovyScript: 'EnvironmentsName.groovy'       
+            groovyScript: 'return["A","B"]',
+            descriptionGroovyScript: 'return["c","d"]'       
         )
     ])
 ])

@@ -1,13 +1,24 @@
 properties([
     parameters([
-        extendedChoice( 
+            $class: 'ChoiceParameter', 
+            choiceType: 'PT_SINGLE_SELECT', 
+            description: 'Select a choice', 
             name: 'PROJECT', 
-            defaultValue: '', 
-            description: 'Sélectionnez le projet à construire.', 
-            type: 'PT_MULTI_SELECT', 
-            groovyScript: 'return["A","B"]',
-            descriptionGroovyScript: 'return["choice1","choice2"]'       
-        )
+            randomName: 'choice-parameter-7601235200970', 
+            script: [
+                $class: 'GroovyScript', 
+                fallbackScript: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 'return ["ERROR"]'
+                ], 
+                script: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 'return[\'aaa\',\'bbb\']'
+                ]
+            ]
+        ],
     ])
 ])
 pipeline {

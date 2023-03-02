@@ -1,6 +1,5 @@
 properties([
     parameters([
-            booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
             [$class: 'ChoiceParameter', 
             choiceType: 'PT_SINGLE_SELECT', 
             description: 'Select source environment', 
@@ -38,7 +37,8 @@ properties([
                     script: 'return["UAT","SIT","PROD"]'
                 ]
             ]
-         ]
+         ],
+         booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
     ])
 ])
 pipeline {
@@ -47,21 +47,16 @@ pipeline {
       label 'au-rpi-1'
     }
   }
-  parameters{
-    choice(
-       choices: ['pwd', 'list'],
-       name: 'PARAMETER_01'
-    )
-  }
+  
   stages {
   stage('Stage1') {
       when {
                 expression { 
-                   return params.PARAMETER_01 == 'pwd'
+                   return params.SOURCE == 'DEV'
                 }
             }
       steps {
-        echo 'Building anotherJob and getting the log'
+        echo "Destination Selection:"
         echo params.DESTINATION
         sh 'pwd'
       }
@@ -69,7 +64,7 @@ pipeline {
     stage('Stage2') {
       when {
           expression { 
-                   return params.PARAMETER_01 == 'list'
+                   return params.SOURCE == 'UAT'
           }
       }
       steps {

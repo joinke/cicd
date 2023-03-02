@@ -48,7 +48,6 @@ pipeline {
       agent {
         node("${params.SOURCE}")
         }
-      }
       when {
                 expression { 
                    return params.SOURCE == 'au-rpi-5'

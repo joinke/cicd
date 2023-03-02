@@ -60,7 +60,7 @@ pipeline {
     stage('Stage2') {
        when {
           expression { 
-                   return params.SOURCE == 'newmac1'
+                   return params.DESTINATION == 'newmac1'
           }
       }
       agent {

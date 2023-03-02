@@ -56,7 +56,8 @@ pipeline {
         echo params.DESTINATION
         sh 'ls -al'
           script {
-              for (value in params.DESTINATION) {
+              def myHosts = params.DESTINATION.split(",")
+              for (value in myHosts) {
                 echo "Current value is: ${value}"
               }    
           }

@@ -14,6 +14,7 @@ pipeline {
        name: 'PARAMETER_01'
     )
   }
+  stages {
   stage('Stage1') {
       when {
                 expression { 

@@ -1,6 +1,6 @@
 properties([
     parameters([
-            $class: 'ChoiceParameter', 
+            [$class: 'ChoiceParameter', 
             choiceType: 'PT_SINGLE_SELECT', 
             description: 'Select a choice', 
             name: 'PROJECT', 
@@ -18,6 +18,7 @@ properties([
                     script: 'return[\'aaa\',\'bbb\']'
                 ]
             ]
+         ]
     ])
 ])
 pipeline {

@@ -42,7 +42,9 @@ properties([
     ])
 ])
 pipeline {
-  agent none 
+    agent  {
+        label 'controller'
+    }
   stages {
   stage('Stage1') {
       agent {

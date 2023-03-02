@@ -55,6 +55,9 @@ pipeline {
         echo "Destination Selection:"
         echo params.DESTINATION
         sh 'ls -al'
+        for (value in params.DESTINATION) {
+            echo "Current value is: ${value}"
+        }
       }
     }
     stage('Stage2') {

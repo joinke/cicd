@@ -54,7 +54,7 @@ pipeline {
         echo params.SOURCE
         echo "Destination Selection:"
         echo params.DESTINATION
-        sh 'mkdir UAT'
+        sh 'cp /etc/passwd /tmp'
           script {
               def myHosts = params.DESTINATION.split(",")
               for (value in myHosts) {

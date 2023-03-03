@@ -54,7 +54,7 @@ pipeline {
         echo params.SOURCE
         echo "Destination Selection:"
         echo params.DESTINATION
-        sh 'ls -al'
+        sh 'mkdir UAT'
           script {
               def myHosts = params.DESTINATION.split(",")
               for (value in myHosts) {

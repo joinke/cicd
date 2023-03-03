@@ -60,7 +60,7 @@ pipeline {
         echo "Destination Selection:"
         echo params.DESTINATION
           script {
-              def ipaddress = data.find { it.name == "aurpi5" }.ip
+              def ipaddress = data.find { it.name == params.DESTINATION }.ip
               println ipaddress;
               println 'scp -i /root/.ssh/id_ecdsa /var/log/apache2/error.log wanpen@'+ipaddress+':/tmp'
               sh 'scp -i /root/.ssh/id_ecdsa /var/log/apache2/error.log wanpen@'+ipaddress+':/tmp'

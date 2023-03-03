@@ -34,7 +34,7 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: "return [[name:'aurpi5',value:'192.168.70.25'],[name:'newmac1',value:'192.168.67.4'],[name:'PROD',value:'192.168.70.32']]"
+                    script: 'return [[name:"aurpi5",value:"192.168.70.25"],[name:"newmac1",value:"192.168.67.4"],[name:"PROD",value:"192.168.70.32"]]'
                 ]
              ]
          ],

@@ -42,9 +42,9 @@ properties([
     ])
 ])
 def data = [
-  1:[name:"aurpi5",ip:"192.168.70.25"],
-  2:[name:"newmac1",ip:"192.168.67.4"],
-  3:[name:"PROD",ip:"192.168.70.32"]
+  ["name":"aurpi5","ip":"192.168.70.25"],
+  ["name":"newmac1","ip":"192.168.67.4"],
+  ["name":"PROD","ip":"192.168.70.32"]
 ]
 pipeline {
     agent  {
@@ -60,8 +60,8 @@ pipeline {
         echo "Destination Selection:"
         echo params.DESTINATION
           script {
-              def ipaddress = data.find{it.value.name == "aurpi5"}.collect{key, value -> value.ip}
-              echo ipaddress;
+              def ipaddress = data.find { it.name == "aurpi5" }.ip
+              println ipaddress;  
               def myHosts = params.DESTINATION.split(",")
               for (value in myHosts) {
                 echo "Current value is: ${value}"

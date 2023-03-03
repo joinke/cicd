@@ -41,6 +41,11 @@ properties([
          booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
     ])
 ])
+def data = [
+  1:[name:"aurpi5",ip:"192.168.70.25"],
+  2:[name:"newmac1",ip:"192.168.67.4"],
+  3:[name:"PROD",ip:"192.168.70.32"]
+]
 pipeline {
     agent  {
         label 'controller'
@@ -54,7 +59,8 @@ pipeline {
         echo params.SOURCE
         echo "Destination Selection:"
         echo params.DESTINATION
-        sh 'cp /etc/passwd /tmp'
+        def ipaddress = data.find{it.value.name == "aurpi5"}.collect{key, value -> value.ip}
+        echo ipaddress;
           script {
               def myHosts = params.DESTINATION.split(",")
               for (value in myHosts) {

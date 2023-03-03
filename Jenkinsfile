@@ -1,3 +1,8 @@
+def data = [
+  ["name":"aurpi5","ip":"192.168.70.25"],
+  ["name":"newmac1","ip":"192.168.67.4"],
+  ["name":"PROD","ip":"192.168.70.32"]
+]
 properties([
     parameters([
             [$class: 'ChoiceParameter', 
@@ -34,18 +39,14 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: "return [[name:'aurpi5',value:'192.168.70.25'],[name:'newmac1',value:'192.168.67.4'],[name:'PROD',value:'192.168.70.32']]"
+                    script: "return data.collect{ it['name'] }"
                 ]
             ]
          ],
          booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
     ])
 ])
-def data = [
-  ["name":"aurpi5","ip":"192.168.70.25"],
-  ["name":"newmac1","ip":"192.168.67.4"],
-  ["name":"PROD","ip":"192.168.70.32"]
-]
+
 pipeline {
     agent  {
         label 'controller'

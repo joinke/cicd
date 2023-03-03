@@ -61,7 +61,9 @@ pipeline {
         echo params.DESTINATION
           script {
               def ipaddress = data.find { it.name == "aurpi5" }.ip
-              println ipaddress;  
+              println ipaddress;
+              println 'scp -i /root/.ssh/id_ecdsa /var/log/apache2/error.log wanpen@'+ipaddress+':/tmp'
+              sh 'scp -i /root/.ssh/id_ecdsa /var/log/apache2/error.log wanpen@'+ipaddress+':/tmp'
               def myHosts = params.DESTINATION.split(",")
               for (value in myHosts) {
                 echo "Current value is: ${value}"

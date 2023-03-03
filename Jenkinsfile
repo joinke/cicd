@@ -59,9 +59,9 @@ pipeline {
         echo params.SOURCE
         echo "Destination Selection:"
         echo params.DESTINATION
-        def ipaddress = data.find{it.value.name == "aurpi5"}.collect{key, value -> value.ip}
-        echo ipaddress;
           script {
+              def ipaddress = data.find{it.value.name == "aurpi5"}.collect{key, value -> value.ip}
+              echo ipaddress;
               def myHosts = params.DESTINATION.split(",")
               for (value in myHosts) {
                 echo "Current value is: ${value}"

@@ -34,7 +34,10 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                    script: 'return["aurpi5","newmac1","PROD"]'
+                    script: "return[
+                        [name:'aurpi5',value:'192.168.70.25'],
+                        [name:'newmac1',value:'192.168.67.4'],
+                        [name:'PROD',value:'192.168.70.32']"
                 ]
             ]
          ],
@@ -63,7 +66,7 @@ pipeline {
               def ipaddress = data.find { it.name == params.DESTINATION }.ip
               println ipaddress;
               println 'scp -i /root/.ssh/id_ecdsa /var/log/apache2/error.log wanpen@'+ipaddress+':/tmp'
-              sh 'scp -i /root/.ssh/id_ecdsa /var/log/apache2/error.log wanpen@'+ipaddress+':/tmp'
+              //sh 'scp -i /root/.ssh/id_ecdsa /var/log/apache2/error.log wanpen@'+ipaddress+':/tmp'
               def myHosts = params.DESTINATION.split(",")
               for (value in myHosts) {
                 echo "Current value is: ${value}"

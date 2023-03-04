@@ -39,7 +39,7 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: false, 
-                  script: "return ${data.collect{ it['name'] }}"
+                  script: 'return["aurpi5","newmac1"]'
                 ]
             ]
          ],
